@@ -11,11 +11,15 @@ $routes->get('/contact', 'Page::contact');
 $routes->get('/faqs', 'Page::faqs');
 $routes->get('/post', 'Post::index');
 $routes->get('/post/(:any)', 'Post::viewPost/$1');
-//Admin post
+
+// 🟢 Tambahkan ini untuk menangani POST dari form kontak
+$routes->post('/kirim', 'Page::kirim'); // GANTI jika controller bukan Contact
+
+// Admin post
 $routes->group('admin', function($routes){
     $routes->get('post', 'PostAdmin::index', ['filter' => 'login']);
     $routes->get('post/(:segment)/preview','PostAdmin::preview/$1');   
-$routes->add('post/new', 'PostAdmin::create');
+    $routes->add('post/new', 'PostAdmin::create');
     $routes->add('post/(:segment)/edit','PostAdmin::edit/$1');
     $routes->get('post/(:segment)/delete','PostAdmin::delete/$1');
 });
