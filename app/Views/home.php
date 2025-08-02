@@ -8,6 +8,99 @@
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="<?= base_url('css/bootstrap.min.css') ?>" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+	<style>
+		body {
+			background-image: url('<?= base_url('images/caffe11.jpg') ?>');
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-position: center;
+		}
+
+		.bg-light {
+			background-color: rgba(255, 255, 255, 0.6) !important;
+		}
+
+		.card {
+			background-color: rgba(255, 255, 255, 0.7);
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+		}
+
+		footer {
+			background-color: rgba(255, 255, 255, 0.5);
+			border-radius: 10px;
+			font-weight: bold;
+		}
+
+		/* Hover effect untuk navbar link */
+		.navbar-nav .nav-link {
+			position: relative;
+			transition: color 0.3s ease;
+		}
+
+		.navbar-nav .nav-link:hover {
+			color: #f8c146 !important;
+		}
+
+		.navbar-nav .nav-link::after {
+			content: '';
+			display: block;
+			width: 0%;
+			height: 2px;
+			background: #f8c146;
+			transition: width 0.3s;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+		}
+
+		.navbar-nav .nav-link:hover::after {
+			width: 100%;
+		}
+
+		/* Hover lucu pada heading utama */
+		.welcome-title {
+			transition: all 0.4s ease;
+			display: inline-block;
+			cursor: pointer;
+		}
+
+		.welcome-title:hover {
+			color: #6f4e37; /* warna kopi */
+			transform: rotate(-2deg) scale(1.08);
+			text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+			animation: wiggle 0.4s ease-in-out;
+		}
+
+		@keyframes wiggle {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			25% {
+				transform: rotate(2deg);
+			}
+
+			50% {
+				transform: rotate(-2deg);
+			}
+
+			75% {
+				transform: rotate(1deg);
+			}
+
+			100% {
+				transform: rotate(0deg);
+			}
+		}
+	</style>
 </head>
 
 <body>
@@ -15,7 +108,8 @@
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow">
 		<div class="container">
 			<a class="navbar-brand fw-bold" href="<?= base_url() ?>">MyBlog</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
@@ -40,13 +134,15 @@
 		</div>
 	</nav>
 
+	<!-- Hero Section -->
 	<div class="p-5 mb-4 bg-light rounded-3 text-center mt-5">
 		<div class="container py-5">
-			<h1 class="display-5 fw-bold">Selamat Datang di Dunia Kopi</h1>
+			<h1 class="display-5 fw-bold welcome-title">Selamat Datang di Dunia Kopi</h1>
 			<p class="lead">Temukan cerita, rasa, dan budaya di balik secangkir kopi</p>
 		</div>
 	</div>
 
+	<!-- Konten Card -->
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 offset-md-3 my-3">
@@ -78,15 +174,16 @@
 		</div>
 	</div>
 
-	<div class="container py-4">
-		<footer class="pt-3 mt-4 text-muted border-top text-center">
-			&copy; <?= date('Y') ?> MyBlog
+	<!-- Footer -->
+	<div class="container py-5">
+		<footer class="text-muted border-top text-center">
+			&copy; 2025 MyBlog
 		</footer>
 	</div>
 
-	<!-- Jquery dan Bootstrap JS -->
+	<!-- JQuery dan Bootstrap JS -->
 	<script src="<?= base_url('js/jquery.min.js') ?>"></script>
-	<script src="<?= base_url('js/bootstrap.min.js') ?>"></script>
+	<script src="<?= base_url('js/bootstrap.bundle.min.js') ?>"></script>
 
 </body>
 

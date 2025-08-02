@@ -8,11 +8,12 @@
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="<?= base_url('css/bootstrap.min.css') ?>">
-	<!-- Bootstrap Icons -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
 	<style>
 		body {
-			background: #f5f7fa;
+			background-color: #f8f9fa; /* Sama seperti Home */
+			min-height: 100vh;
 			padding-top: 70px;
 		}
 
@@ -24,17 +25,18 @@
 		.card-body {
 			background-color: #ffffff;
 			border-radius: 1rem;
+			box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 		}
 
 		.form-control:focus {
-			border-color: #0d6efd;
-			box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+			border-color: #13161bff;
+			box-shadow: 0 0 0 0.2rem rgba(116, 117, 121, 0.25);
 		}
 	</style>
 </head>
 
 <body>
-
+	<!-- Navbar -->
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top shadow">
 		<div class="container">
 			<a class="navbar-brand fw-bold" href="<?= base_url() ?>">MyBlog</a>
@@ -54,7 +56,7 @@
 	</nav>
 
 	<!-- Header -->
-	<div class="bg-primary text-white text-center py-5 mb-4">
+	<div class="bg-dark text-white text-center py-5 mb-4 shadow">
 		<div class="container">
 			<h1 class="display-5 fw-bold"><i class="bi bi-chat-left-text-fill me-2"></i>Kontak Kami</h1>
 			<p class="lead">Kami siap menerima pertanyaan, saran, dan masukan Anda.</p>
@@ -75,7 +77,7 @@
 				<div class="card shadow-sm">
 					<div class="card-body p-4">
 						<h4 class="mb-4 text-primary"><i class="bi bi-envelope-paper-fill me-2"></i>Formulir Kontak</h4>
-						<form action="<?= base_url('/kirim') ?>" method="post">
+						<form action="<?= base_url('/contact/kirim') ?>" method="post">
 							<div class="mb-3">
 								<label for="nama" class="form-label">Nama Lengkap</label>
 								<div class="input-group">
@@ -94,7 +96,7 @@
 								<label for="telepon" class="form-label">Nomor Telepon</label>
 								<div class="input-group">
 									<span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
-									<input type="text" class="form-control" id="telepon" name="telepon" placeholder="+62">
+									<input type="text" class="form-control" id="telepon" name="telepon" placeholder="+62" required>
 								</div>
 							</div>
 							<div class="mb-3">
@@ -122,5 +124,4 @@
 	<!-- Bootstrap JS -->
 	<script src="<?= base_url('js/bootstrap.bundle.min.js') ?>"></script>
 </body>
-
 </html>

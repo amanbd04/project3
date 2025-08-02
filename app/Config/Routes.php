@@ -7,13 +7,13 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/about', 'Page::about');
-$routes->get('/contact', 'Page::contact');
+$routes->get('/contact', 'Kontak::index'); // Ganti ke controller 'Kontak'
 $routes->get('/faqs', 'Page::faqs');
 $routes->get('/post', 'Post::index');
 $routes->get('/post/(:any)', 'Post::viewPost/$1');
 
-// 🟢 Tambahkan ini untuk menangani POST dari form kontak
-$routes->post('/kirim', 'Page::kirim'); // GANTI jika controller bukan Contact
+// ✅ Rute POST untuk form kontak
+$routes->post('/contact/kirim', 'Kontak::kirim'); // Sesuai action form
 
 // Admin post
 $routes->group('admin', function($routes){
