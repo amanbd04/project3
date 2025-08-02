@@ -11,6 +11,8 @@ $routes->get('/contact', 'Kontak::index'); // Ganti ke controller 'Kontak'
 $routes->get('/faqs', 'Page::faqs');
 $routes->get('/post', 'Post::index');
 $routes->get('/post/(:any)', 'Post::viewPost/$1');
+$routes->get('/menu', 'Menu::index');
+
 
 // ✅ Rute POST untuk form kontak
 $routes->post('/contact/kirim', 'Kontak::kirim'); // Sesuai action form
