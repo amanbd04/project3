@@ -12,25 +12,48 @@
 
 	<style>
 		body {
-			background-color: #f8f9fa; /* Sama seperti Home */
-			min-height: 100vh;
+			background: url("<?= base_url('images/caffe11.jpg') ?>") no-repeat center center fixed;
+			background-size: cover;
+			color: #fff;
 			padding-top: 70px;
+			min-height: 100vh;
+		}
+
+		.bg-overlay {
+			background-color: rgba(0, 0, 0, 0.6);
+			border-radius: 1rem;
+			padding: 2rem;
 		}
 
 		.card {
+			background-color: rgba(255, 255, 255, 0.1);
 			border: none;
 			border-radius: 1rem;
+			backdrop-filter: blur(6px);
+			color: #fff;
 		}
 
-		.card-body {
-			background-color: #ffffff;
-			border-radius: 1rem;
-			box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+		.card-body label,
+		.card-body .form-label,
+		.card-body input,
+		.card-body textarea,
+		.card-body .input-group-text {
+			color: #fff;
+		}
+
+		.form-control::placeholder {
+			color: #ddd;
 		}
 
 		.form-control:focus {
-			border-color: #13161bff;
-			box-shadow: 0 0 0 0.2rem rgba(116, 117, 121, 0.25);
+			background-color: rgba(255, 255, 255, 0.2);
+			border-color: #f7c08a;
+			box-shadow: 0 0 0 0.2rem rgba(247, 192, 138, 0.25);
+			color: #fff;
+		}
+
+		.navbar-dark .navbar-nav .nav-link.active {
+			color: #f7c08a;
 		}
 	</style>
 </head>
@@ -56,8 +79,8 @@
 	</nav>
 
 	<!-- Header -->
-	<div class="bg-dark text-white text-center py-5 mb-4 shadow">
-		<div class="container">
+	<div class="container mb-4">
+		<div class="bg-overlay text-center shadow mt-4">
 			<h1 class="display-5 fw-bold"><i class="bi bi-chat-left-text-fill me-2"></i>Kontak Kami</h1>
 			<p class="lead">Kami siap menerima pertanyaan, saran, dan masukan Anda.</p>
 		</div>
@@ -68,56 +91,56 @@
 		<div class="row justify-content-center">
 			<div class="col-md-8">
 				<?php if (session()->getFlashdata('message')): ?>
-					<div class="alert alert-success alert-dismissible fade show" role="alert">
+					<div class="alert alert-success alert-dismissible fade show bg-success text-white border-0" role="alert">
 						<i class="bi bi-check-circle-fill me-1"></i><?= session()->getFlashdata('message') ?>
-						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						<button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
 					</div>
 				<?php endif; ?>
 
 				<div class="card shadow-sm">
 					<div class="card-body p-4">
-						<h4 class="mb-4 text-primary"><i class="bi bi-envelope-paper-fill me-2"></i>Formulir Kontak</h4>
+						<h4 class="mb-4 text-warning"><i class="bi bi-envelope-paper-fill me-2"></i>Formulir Kontak</h4>
 						<form action="<?= base_url('/contact/kirim') ?>" method="post">
 							<div class="mb-3">
 								<label for="nama" class="form-label">Nama Lengkap</label>
 								<div class="input-group">
-									<span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-									<input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Anda" required>
+									<span class="input-group-text bg-transparent border-white"><i class="bi bi-person-fill"></i></span>
+									<input type="text" class="form-control bg-transparent border-white" id="nama" name="nama" placeholder="Nama Anda" required>
 								</div>
 							</div>
 							<div class="mb-3">
 								<label for="email" class="form-label">Email</label>
 								<div class="input-group">
-									<span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
-									<input type="email" class="form-control" id="email" name="email" placeholder="email@example.com" required>
+									<span class="input-group-text bg-transparent border-white"><i class="bi bi-envelope-fill"></i></span>
+									<input type="email" class="form-control bg-transparent border-white" id="email" name="email" placeholder="email@example.com" required>
 								</div>
 							</div>
 							<div class="mb-3">
 								<label for="telepon" class="form-label">Nomor Telepon</label>
 								<div class="input-group">
-									<span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
-									<input type="text" class="form-control" id="telepon" name="telepon" placeholder="+62" required>
+									<span class="input-group-text bg-transparent border-white"><i class="bi bi-telephone-fill"></i></span>
+									<input type="text" class="form-control bg-transparent border-white" id="telepon" name="telepon" placeholder="+62" required>
 								</div>
 							</div>
 							<div class="mb-3">
 								<label for="deskripsi" class="form-label">Pesan atau Pertanyaan</label>
-								<textarea class="form-control" id="deskripsi" name="deskripsi" rows="5" placeholder="Tulis pesan Anda di sini..." required></textarea>
+								<textarea class="form-control bg-transparent border-white" id="deskripsi" name="deskripsi" rows="5" placeholder="Tulis pesan Anda di sini..." required></textarea>
 							</div>
-							<button type="submit" class="btn btn-primary w-100">
+							<button type="submit" class="btn btn-warning w-100 fw-bold">
 								<i class="bi bi-send-fill"></i> Kirim Pesan
 							</button>
 						</form>
 					</div>
 				</div>
-				<p class="text-center mt-4 text-muted"><small>Terima kasih telah menghubungi kami. Kami akan segera merespons pesan Anda.</small></p>
+				<p class="text-center mt-4"><small class="text-light">Terima kasih telah menghubungi kami. Kami akan segera merespons pesan Anda.</small></p>
 			</div>
 		</div>
 	</div>
 
 	<!-- Footer -->
 	<div class="container mt-5">
-		<footer class="text-center text-muted py-4 border-top">
-			&copy; <?= date('Y') ?> MyBlog. Dibuat dengan ❤️ di Indonesia.
+		<footer class="text-center text-light py-4 border-top border-light">
+			&copy; <?= date('Y') ?> MyBlog. Dibuat dengan ❤️ dan kopi hangat.
 		</footer>
 	</div>
 
