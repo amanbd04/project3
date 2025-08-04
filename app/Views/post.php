@@ -65,6 +65,7 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item"><a class="nav-link" href="<?= base_url() ?>">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="<?= base_url('menu') ?>">Menu</a></li>
 					<li class="nav-item"><a class="nav-link" href="<?= base_url('about') ?>">About</a></li>
 					<li class="nav-item"><a class="nav-link active" href="<?= base_url('post') ?>">Blog</a></li>
 					<li class="nav-item"><a class="nav-link" href="<?= base_url('contact') ?>">Contact</a></li>
